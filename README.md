@@ -2,6 +2,8 @@
 
 文件夹拖进来，输入框里是它的**路径**（DSH / DeepSeek Harness 客户端插件）。
 
+![拖一个文件夹进 DSH，输入框里出现的是它的绝对路径](docs/demo.png)
+
 ```bash
 dsh plugin --profile desktop add github:vianvio/dsh-plugin-drop-path
 # 装完重启 DSH（客户端半是启动时加载的）
@@ -11,8 +13,8 @@ dsh plugin --profile desktop add github:vianvio/dsh-plugin-drop-path
 而是这个文件夹的**本机绝对路径**——作为一个 `@路径/` 引用块插进去，可以直接接着打字发送。
 
 ```
-拖入：/Users/vian/research/dsh-pet        →      输入框里：@ /Users/vian/research/dsh-pet/
-                                                  （folder 形状的引用块，模型收到 @/Users/vian/research/dsh-pet/）
+拖入：/Users/vian/Documents/research/dsh-pet        →      输入框里：@ /Users/vian/Documents/research/dsh-pet/
+                                                          （folder 形状的引用块，模型收到 @/Users/…/dsh-pet/）
 ```
 
 ## 它抢的是什么，不抢什么
