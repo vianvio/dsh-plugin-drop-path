@@ -1,0 +1,13 @@
+# dsh-plugin-drop-path 组合补丁：把「文件夹拖进来变成路径」挂到 profile 上。
+#
+# 这个插件**两半**都在，但只有客户端半有行为：
+#   · 宿主半（index.js）：空 apply，只为了让这个包在 Loader 里有一个条目——
+#     有了条目，客户端半的 bundle 才会被发布到浏览器端（client-modules 按 Loader 条目组图）。
+#   · 浏览器半（client.js）：在输入框上方注册一个覆盖层，监听 window 捕获阶段的拖放事件。
+#     拖进来的东西是**文件夹**时，抢占这次拖放（stopImmediatePropagation，附件插件不会
+#     再把它当文件上传），拿到它的本机绝对路径，作为 `@路径/` 引用块插进输入框。
+#
+# 拖进来的东西是**普通文件**时不碰：原样交给上游的附件流程。
+- insert:
+    - id: dsh-drop-path
+      name: dsh-plugin-drop-path

@@ -1,0 +1,52 @@
+{
+  "name": "dsh-plugin-drop-path",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DSH 文件夹拖拽：把一个文件夹拖进 DSH，输入框里显示这个文件夹的路径（`@路径/` 引用块），而不是被当成附件上传。",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./client.js": "./client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test test/",
+    "harness:check": "node --check index.js && node --check client.js"
+  },
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "dsh-plugin",
+    "drag-and-drop",
+    "folder",
+    "path"
+  ],
+  "license": "MIT",
+  "dsh": {
+    "id": "dsh-drop-path",
+    "name": "文件夹拖拽成路径",
+    "version": "0.1.0",
+    "permissions": "客户端输入框增强（读取拖入文件夹的本机路径）",
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-session"
+      ]
+    }
+  }
+}
