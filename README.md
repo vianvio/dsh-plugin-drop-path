@@ -3,7 +3,7 @@
 文件夹拖进来，输入框里是它的**路径**（DSH / DeepSeek Harness 客户端插件）。
 
 ```bash
-dsh plugin --profile desktop add git+https://github.com/vianvio/dsh-plugin-drop-path.git
+dsh plugin --profile desktop add github:vianvio/dsh-plugin-drop-path
 # 装完重启 DSH（客户端半是启动时加载的）
 ```
 
@@ -79,7 +79,7 @@ dsh plugin --profile desktop add git+https://github.com/vianvio/dsh-plugin-drop-
 
 ```bash
 # 方式一：直接从这个仓库装（无需 npm 发布）
-dsh plugin --profile desktop add git+https://github.com/vianvio/dsh-plugin-drop-path.git
+dsh plugin --profile desktop add github:vianvio/dsh-plugin-drop-path
 
 # 方式二：clone 下来按本地目录装（改代码即时生效）
 git clone https://github.com/vianvio/dsh-plugin-drop-path.git ~/code/dsh-plugin-drop-path
